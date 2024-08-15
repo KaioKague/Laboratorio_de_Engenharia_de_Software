@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function tipoDado(value) {
+            if (Array.isArray(value)) {
+                return 'Array';
+            }
+            
+            if (value === null) {
+                return 'Null';
+            }
+            
+            return typeof value;
+        }
+    </script>
+    <title>Tipo de Dado</title>
+</head>
+<body>
+    <script language="JavaScript" type="text/javascript">
+        var dado = prompt()
+        result = tipoDado(dado);
+        alert("Tipo do dado: "+result);
+    </script>
+</body>
+</html>

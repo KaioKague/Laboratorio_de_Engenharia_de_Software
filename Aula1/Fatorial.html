@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script language="JavaScript" type="text/javascript">
+    function fatorial(n) {
+        if (n < 0) return alert("Não é possivel calcular fatorial de um número negativo");
+        if (n === 0 || n === 1) return 1;
+        let result = 1;
+        for (let i = 2; i <= n; i++) {
+            result *= i;
+    }
+        return result;
+    }
+    </script>
+    <title>Fatorial</title>
+</head>
+<body>
+    <script language="JavaScript" type="text/javascript">
+        numero = prompt("Digite um número: ");
+        resultado = fatorial(numero);
+        alert("Fatorial de "+ numero + " é "+ resultado);
+    </script>
+</body>
+</html>

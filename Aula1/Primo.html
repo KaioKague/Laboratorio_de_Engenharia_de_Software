@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script language="JavaScript" type="text/javascript">
+    function primo(numero){
+        
+        if(numero <= 1){
+            return false;
+        }
+        else if(numero <= 3){
+            return true;
+        }
+        if(numero%2 == 0 || numero%3 == 0){
+            return false;
+        }
+        for(i=5; i*i <= numero; i+=6){
+            if(numero%i ===0 || numero%(i+2) === 0){
+                return false;
+            }
+        }
+        return true
+    }
+    </script>
+    <title>Primos</title>
+</head>
+<body>
+    <script language="JavaScript" type="text/javascript">
+        numero = prompt("Digite um número: ");
+        NumPrimo = primo(numero);
+        if(NumPrimo == true){
+            alert("Este número é primo.");
+        }
+        else{
+            alert("Este número não é primo.");
+        }
+    </script>
+</body>
+</html>
