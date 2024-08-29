@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade</title>
+</head>
+<body>
+    <form>
+        <p>Nome: </p><input type="text" id="nome" placeholder="Nome"><br>
+        <p>Sobrenome: </p><input type="text" id="sobreN" placeholder="Sobrenome"><br>
+        <p>Idade: </p><input type="number" id="idade" placeholder="Idade"><br><br>
+        <input type="button" id="submit" value="Submit" onclick="Cadastrar()">
+        <br><br>
+        <input type="button" id="lista" value="Listar Dados" onclick="listar()">
+        <ul id="lista1"></ul>
+
+        <script>
+            var cadastro = [{
+                pNome: "Kaio",
+                sNome: "Almeida",
+                idade: 22
+            }];
+            function Cadastrar(){
+                let a = document.getElementById("nome").value;
+                let b = document.getElementById("sobreN").value;
+                let c = document.getElementById('idade').value;
+                cadastro.push({"pNome": a,"sNome": b, "idade": c});
+            }
+            function listar(){
+                let cad = cadastro.length;
+                let l = document.getElementById('lista1');
+                cadastro.sort();
+                for(var i =0; cad > i; i++){
+                    let li = document.createElement("li");
+                    li.innerText = cadastro[i].pNome +' '+ cadastro[i].sNome +', '+ cadastro[i].idade;
+                    l.appendChild(li);
+                }
+            }
+        </script>
+    </form>
+</body>
+</html>

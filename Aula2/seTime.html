@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetTimeOut</title>
+    <script>
+        function tempo(){
+            let a = new Date();
+            t = a.getHours() +":"+a.getMinutes()+":"+a.getSeconds();
+            document.getElementById('tempo').innerHTML = t;
+            setTimeout(tempo,1000);
+        }
+    </script>
+</head>
+<body>
+    <h1 id="tempo"></h1>
+    <script>
+        window.addEventListener('load', () => tempo())
+    </script>
+</body>
+</html>
