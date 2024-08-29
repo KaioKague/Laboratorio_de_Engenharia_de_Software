@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+    </script>
+</head>
+<body>
+    <form>
+    <input type="button" value="Botão" id="meuBot" onclick="Clicou()">
+    <input type="text" value="Fatec" id="texto">
+    </form>
+    <script>
+        function Clicou(){
+            x = document.getElementById('meuBot').value;
+            console.log(x);
+            document.getElementById('meuBot').addEventListener("click", alert("O botão foi clickado."));
+        }
+    </script>
+</body>
+</html>
