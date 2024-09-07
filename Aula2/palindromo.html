@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromo</title>
+</head>
+<body>
+    <input type="text" id="frase" placeholder="Frase"><br>
+    <input type="button" id="submit" value="Submit" onclick="Clickar()"><br><br>
+    <p id="corpo"></p>
+    <script>
+        let x = document.getElementById('corpo');
+        r = " ";
+        function Clickar(){
+            var a = document.getElementById('frase').value;
+            var teste = a.toLowerCase().replace(r,'');
+            var t = teste.split(" ").join("");
+            var r = t.split("").reverse().join("");
+            if (t == r){
+                x.append(document.write = "Frase é um Palindromo.")
+            }
+            else{
+                x.append(document.write = "Frase não é um Palindromo.")
+            }
+        }
+    </script>
+</body>
+</html>

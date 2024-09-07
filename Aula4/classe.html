@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classe</title>
+    <script>
+        
+        function Pessoa(){
+            nome = " ";
+            sobrenome = " ";
+            email = " ";
+            data_nasc = " ";
+            function nomeComp(){
+                return this.nome + " " +this.sobrenome;
+            }
+            this.setNome = function(vN){
+                this.nome = vN;
+            }
+            this.getNome = function(){
+                return this.nome;
+            }
+            this.setEmail = function(vEm){
+                this.email = vEm;
+            }
+            this.setData = function(vDa){
+                this.data_nasc = vDa;
+            }
+        }
+        function Aluno() {
+            Pessoa.call(this);
+            curso = "";
+            this.setCurso = function(vC){
+                this.curso = vC;
+            }
+        }
+        function Prof() {
+            Pessoa.call(this);
+            area_atua = "";
+            link_lattes = "";
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,61 @@
+*{
+    font-family: Helvetica;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 370px;
+}
+h1{
+    font-size: 26px;
+    color: #000;
+}
+label{
+    font-size: 10px;
+    opacity: 90%;
+    color: #222;
+}
+input{
+    font-size: 12px;
+    color: #999;
+    border: none;
+    border-bottom: solid 1px #ccc;
+}
+#enviar #redefinir{
+    font-size: 12px;
+    background-color: #eee;
+    border: #aaa;
+    border-radius: 4px;
+}
+#corpo{
+    display:flex;
+    width: 600px;
+    height: 90%;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    border-right: #999 solid 3px; 
+    border-left: #999 solid 3px;
+    border-top: #999 solid 3px;
+    flex-direction: column;
+}
+input{
+    margin: 5px;
+}
+
+#botoes{
+
+    display:flex;
+    width: 100%;
+    margin-top: 10px;
+    align-content: center;
+    justify-content: center;
+}
+
+.bot{
+    margin-right:10px;
+    border-radius: 3px;
+    background-color: #ccc;
+    color: #000;
+}

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="form.css">
+    <script>
+        function Pessoa(){
+            nome = " ";
+            sobrenome = " ";
+            email = " ";
+            data_nasc = " ";
+            teleFix = "";
+            teleMove = "";
+            function nomeComp(){
+                return this.nome + " " +this.sobrenome;
+            }
+            this.setNome = function(vN){
+                this.nome = vN;
+            }
+            this.getNome = function(){
+                return this.nome;
+            }
+            this.setEmail = function(vEm){
+                this.email = vEm;
+            }
+            this.setData = function(vDa){
+                this.data_nasc = vDa;
+            }
+            this.setTelF = function(vTf){
+                this.teleFix = vTf;
+            }
+            this.setTelM = function(vTm){
+                this.teleMove = vTm;
+            }
+        }
+        function Aluno() {
+            Pessoa.call(this);
+            curso = "";
+            this.setCurso = function(vC){
+                this.curso = vC;
+            }
+        }
+        function Prof() {
+            Pessoa.call(this);
+            area_atua = "";
+            link_lattes = "";
+            this.setArea = function(vAr){
+                this.area_atua = vAr;
+            }
+            this.setLatt = function(vLa){
+                this.link_lattes = vLa;
+            }
+        }
+    </script>
+    <title>Formulario</title>
+</head>
+<body>
+    <div id="corpo">
+        <div id="CabForm">
+            <h1>Formulário de Cadastro</h1>
+        </div>
+        <form id="Formulario">
+            <label for="nome">Nome:</label> 
+            <input type="text" id="nome" name="nome" placeholder="Nome">
+
+            <div id="emailData">
+
+            <label for="email">Email: </label> 
+            <input type="email" id="email" name="email" placeholder="Email">
+            <label for="DataNasc">Data Nascimento: </label>
+            <input type="date" name="DataNasc" id="DataNasc">
+
+            </div>
+
+            <div id="tels">
+
+            <label for="telFix">Telefone Fixo: </label> 
+            <input type="tel" id="telFix" name="telFix" placeholder="(00) 0000-0000">
+            <label for="telMov">Telefone Celular: </label>
+            <input type="tel" id="telMov" name="telMov" placeholder="(00) 00000-0000">
+
+                <div id="radio">
+                <input type="radio" id="Prof" value="Prof" name="tipoCad" onclick="HtmlAluno()"> <label for="Prof">Professor</label>
+                <input type="radio" id="Aluno" value="Aluno" name="tipoCad" onclick="HtmlAluno()"><label for="Aluno">Aluno</label>
+                </div>
+
+            </div>
+
+            <div id="matri">
+                <label for="matri">Matrícula: </label><input type="text" id="matri" placeholder="Matrícula">
+            </div>
+
+            <div id="op">
+                <label for='area'>Área: </label><input type='text' id='area' placeholder='Área'> <label for='latte'>Lattes: </label> <input type='text' id='latte' placeholder='Lattes'>
+            </div>
+
+            <div id="botoes">
+                <input type="button" class="bot" id="enviar" value="Enviar" onclick="Salvar()"> <input type="button" class="bot" id="redefinir" value="Redefinir">
+            </div>
+        </form>
+    </div>
+    <script>
+        var form = document.getElementById('Formulario');
+        function HtmlAluno(){
+            var TipoCad = form.elements['tipoCad'].value;
+            if (TipoCad == 'Prof'){
+                document.getElementById("op").innerHTML = "<label for='area'>Área: </label><input type='text' id='area' name='area' placeholder='Área'> <label for='latte'>Lattes: </label> <input type='text' id='latte' name='latte' placeholder='Lattes'>";
+            } //<input type='button' id='enviar' value='Enviar' onclick='SalvarPro()''> <input type='button' id='redefinir' value='Redefinir'>
+            else if(TipoCad == 'Aluno'){
+                document.getElementById('op').innerHTML = "<label for='curso'>Curso: </label><input type='text' id='curso' name='curso' placeholder='Curso'>";
+            }
+        }
+        function Salvar(){
+            var TipoCad = form.elements['tipoCad'].value;
+            if (TipoCad == 'Aluno'){
+                var al = new Aluno();
+                al.setNome(form.elements['nome'].value);
+                al.setEmail(form.elements['email'].value);
+                al.setData(form.elements['DataNasc'].value);
+                al.setTelF(form.elements['telFix'].value);
+                al.setTelM(form.elements['telMov'].value);
+                al.setCurso(form.elements['curso'].value);
+            }
+            else if(TipoCad == 'Prof'){
+                var prof = new Prof();
+                prof.setNome(form.elements['nome'].value);
+                prof.setEmail(form.elements['email'].value);
+                prof.setData(form.elements['DataNasc'].value);
+                prof.setTelF(form.elements['telFix'].value);
+                prof.setTelM(form.elements['telMov'].value);
+                prof.setArea(form.elements['area'].value);
+                prof.setLatt(form.elements['latte'].value);
+            }
+        }
+    </script>
+</body>
+</html>
