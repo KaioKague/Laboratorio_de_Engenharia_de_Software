@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Tarefas</title>
+    <link rel="stylesheet" type="text/css" href="css.css">
+    <script>
+        // tasks.js
+
+class Tarefa {
+    constructor(nome, descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.status = 'pendente';
+    }
+
+    concluir() {
+        this.status = 'concluída';
+    }
+
+    detalhes() {
+        return `Nome: ${this.nome}\nDescrição: ${this.descricao}\nStatus: ${this.status}`;
+    }
+}
+
+class GerenciadorDeTarefas {
+    constructor() {
+        this.__tarefas = [];
+    }
+
+    adicionarTarefa(tarefa) {
+        this.__tarefas.push(tarefa);
+        this.renderizarTarefas();
+    }
+
+    listarTarefas() {
+        return this.__tarefas;
+    }
+
+    marcarComoConcluida(index) {
+        if (index >= 0 && index < this.__tarefas.length) {
+            this.__tarefas[index].concluir();
+            this.renderizarTarefas();
+        } else {
+            alert("Índice inválido.");
+        }
+    }
+
+    removerTarefa(index) {
+        if (index >= 0 && index < this.__tarefas.length) {
+            this.__tarefas.splice(index, 1);
+            this.renderizarTarefas();
+        } else {
+            alert("Índice inválido.");
+        }
+    }
+
+    visualizarDetalhes(index) {
+        if (index >= 0 && index < this.__tarefas.length) {
+            alert(this.__tarefas[index].detalhes());
+        } else {
+            alert("Índice inválido.");
+        }
+    }
+
+    renderizarTarefas() {
+        const taskList = document.getElementById('taskList');
+        taskList.innerHTML = '';
+        this.__tarefas.forEach((tarefa, index) => {
+            const taskElement = document.createElement('div');
+            taskElement.className = 'task-item';
+            if (tarefa.status === 'concluída') {
+                taskElement.classList.add('completed');
+            }
+            taskElement.innerHTML = `
+                <div id="texto2">
+                <strong>${tarefa.nome}</strong> - ${tarefa.status} 
+                </div>
+                <div class="botoes">
+                <button class="btn" id="detalhes" onclick="gerenciador.visualizarDetalhes(${index})">Detalhes</button>
+                <button class="btn" id="conclu" onclick="gerenciador.marcarComoConcluida(${index})">Concluir</button>
+                <button class="btn" id="remov" onclick="gerenciador.removerTarefa(${index})">Remover</button>
+                </div>
+            `;
+            taskList.appendChild(taskElement);
+        });
+    }
+}
+
+const gerenciador = new GerenciadorDeTarefas();
+
+function addTask() {
+    const taskName = document.getElementById('taskName').value;
+    const taskDescription = document.getElementById('taskDescription').value;
+    if (taskName && taskDescription) {
+        const tarefa = new Tarefa(taskName, taskDescription);
+        gerenciador.adicionarTarefa(tarefa);
+        document.getElementById('taskName').value = '';
+        document.getElementById('taskDescription').value = '';
+    } else {
+        alert('Por favor, preencha o nome e a descrição da tarefa.');
+    }
+}
+
+    </script>
+</head>
+<body>
+    <div id="back">
+    <div id="form">
+        <h1>Gerenciador de Tarefas</h1>
+        <div id="inform">
+        <input type="text" class="input" id="taskName" placeholder="Nome da Tarefa" />
+        <textarea class="input" id="taskDescription" placeholder="Descrição da Tarefa"></textarea>
+        <button id="incluirTar" onclick="addTask()">Adicionar Tarefa</button>
+    <div id="taskList" class="task-container"></div>
+    </div> </div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Carro {
+            construtor(marca, modelo){
+                this.marca = marca;
+                this.modelo = modelo;
+            }
+            mostrarInfo(){
+                console.log("Carro marca: "+this.marca+"\nModelo: "+this.modelo);
+            }
+        }
+        const meuCarro = new Carro;
+        meuCarro.construtor("Renault","Fiat");
+        meuCarro.mostrarInfo();
+
+        class ContaBancaria {
+            constructor(saldo) {
+                this._saldo = saldo;
+            }
+            get saldo() {
+                return this._saldo;
+            }
+            set saldo(valor) {
+                if (valor >= 0) {
+                    this._saldo = valor;
+                }
+            }
+        }
+        const minhaConta = new ContaBancaria(100); // trocar 100 por -10
+        console.log(minhaConta.saldo); 
+        minhaConta.saldo = 200; // trocar 200 por -10
+        console.log(minhaConta.saldo);
+
+        // Herança
+
+        class Animal {
+            constructor(nome) {
+                this.nome = nome;
+            }
+            fazerSom() {
+                console.log(`${this.nome} está fazendo um som.`);
+            }
+        }
+        class Cachorro extends Animal {
+            fazerSom() {
+                console.log(`${this.nome} está latindo.`);
+            }
+        }
+        const meuAnimal = new Animal("Rex");
+        meuAnimal.fazerSom();
+        const meuCachorro = new Cachorro("Rex");
+        meuCachorro.fazerSom(); 
+    </script>
+</body>
+</html>
