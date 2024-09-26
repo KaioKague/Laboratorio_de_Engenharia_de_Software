@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React</title>
+        <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function MeuElemento({agora}){ // sempre começar com letra maiuscula
+            //const nome = 'Fatec';
+            //return <h1>Olá {formatName(faculdade)} </h1>;
+            return(
+                <div>
+                    <h1>Olá Mundo</h1>
+                    <h2>Agora são {agora}</h2>
+                </div>
+            ) // necessario para uso da identaçao, se for so uma linha no return nao precisa
+        }
+        const faculdade = {
+            nome: 'Fatec',
+            cidade: 'Presidente Prudente'
+        }
+        function formatName(faculdade){
+            return faculdade.nome + " - " + faculdade.cidade;
+        }
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        function tick(){
+            let now = new Date().toLocaleTimeString()
+            root.render(<MeuElemento agora ={now}/>);
+        }
+        setInterval(tick, 1000);
+    </script>
+</body>
+</html>
